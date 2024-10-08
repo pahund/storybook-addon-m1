@@ -12,7 +12,7 @@ export const withGlobals = (
   context: StoryContext<Renderer>,
 ) => {
   const [globals] = useGlobals();
-  const myAddon = globals[KEY];
+  const isMobile1Enabled = globals[KEY];
   const canvas = context.canvasElement as ParentNode;
 
   // Is the addon being used in the docs panel
@@ -20,39 +20,16 @@ export const withGlobals = (
 
   useEffect(() => {
     if (!isInDocs) {
-      addExtraContentToStory(canvas, {
-        myAddon,
-      });
+      setBrand(isMobile1Enabled);
     }
-  }, [myAddon, isInDocs]);
+  }, [isMobile1Enabled, isInDocs]);
 
   return StoryFn();
 };
 
 /**
- * It's not really recommended to inject content into the canvas like this.
- * But there are use cases
+ * We may want to use this later to do some m1 magic to the Storybook…
  */
-function addExtraContentToStory(canvas: ParentNode, state: Object) {
-  const preElement =
-    canvas.querySelector(`[data-id="${KEY}"]`) ||
-    canvas.appendChild(document.createElement("pre"));
-
-  preElement.setAttribute("data-id", KEY);
-  preElement.setAttribute(
-    "style",
-    `
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #eee;
-    border-radius: 3px;
-    overflow: scroll;
-  `,
-  );
-
-  preElement.innerHTML = `This snippet is injected by the withGlobals decorator.
-It updates as the user interacts with the ⚡ or Theme tools in the toolbar above.
-
-${JSON.stringify(state, null, 2)}
-`;
+function setBrand(isMobile1Enabled: boolean) {
+  console.log("Is mobile1 brand enabled?", isMobile1Enabled);
 }

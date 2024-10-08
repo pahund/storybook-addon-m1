@@ -14,7 +14,7 @@ addons.register(ADDON_ID, (api) => {
   // Register a tool
   addons.add(TOOL_ID, {
     type: types.TOOL,
-    title: "My addon",
+    title: "mobile1",
     match: ({ viewMode, tabId }) =>
       !!((viewMode && viewMode.match(/^(story)$/)) || tabId === TAB_ID),
     render: () => <Tool api={api} />,
