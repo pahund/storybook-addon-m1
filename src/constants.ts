@@ -1,4 +1,4 @@
-export const ADDON_ID = "my-addon";
+export const ADDON_ID = "m1-addon";
 export const TOOL_ID = `${ADDON_ID}/tool`;
 export const TAB_ID = `${ADDON_ID}/tab`;
 export const KEY = `my-addon`;
