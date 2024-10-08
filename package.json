@@ -42,7 +42,7 @@
     "prerelease": "zx scripts/prepublish-checks.js",
     "release": "npm run build && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.js",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev --no-open -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
