@@ -13,7 +13,7 @@ export const withGlobals = (
 ) => {
   const [globals] = useGlobals();
   const isMobile1Enabled = globals[KEY];
-  const canvas = context.canvasElement as ParentNode;
+  // const canvas = context.canvasElement as ParentNode;
 
   // Is the addon being used in the docs panel
   const isInDocs = context.viewMode === "docs";
