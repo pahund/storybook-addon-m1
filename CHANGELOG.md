@@ -1,3 +1,15 @@
+# v0.0.2 (Tue Oct 08 2024)
+
+#### ⚠️ Pushed to `main`
+
+- fix: remove demo stuff (patrick.hund@adevinta.com)
+
+#### Authors: 1
+
+- Patrick Hund (patrick.hund@adevinta.com)
+
+---
+
 # v0.0.1 (Tue Oct 08 2024)
 
 #### ⚠️ Pushed to `main`
