@@ -1,3 +1,15 @@
+# v0.0.4 (Thu Oct 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- fix: try to work around Storybook bug (patrick.hund@adevinta.com)
+
+#### Authors: 1
+
+- Patrick Hund (patrick.hund@adevinta.com)
+
+---
+
 # v0.0.3 (Thu Oct 10 2024)
 
 #### ⚠️ Pushed to `main`
