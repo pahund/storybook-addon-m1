@@ -1,19 +1,27 @@
 import React, { memo, useCallback } from "react";
-import { useGlobals } from "storybook/internal/manager-api";
+import { useGlobals, API } from "storybook/internal/manager-api";
 import { IconButton } from "storybook/internal/components";
-import { KEY, TOOL_ID } from "../constants";
+import { TOOL_ID, EVENTS } from "../constants";
 import * as icons from "@storybook/icons";
 
-export const Tool = memo(function M1AddonSelector() {
-  const [globals, updateGlobals, storyGlobals] = useGlobals();
+interface Props {
+  /** The storybook API */
+  api: API;
+}
 
-  const isLocked = KEY in storyGlobals;
-  const isActive = !!globals[KEY];
+export const Tool = memo(function M1AddonSelector({ api }: Props) {
+  const [globals, updateGlobals, storyGlobals] = useGlobals();
+  const channel = api.getChannel();
+
+  const isLocked = TOOL_ID in storyGlobals;
+  const isActive = !!globals[TOOL_ID];
 
   const toggle = useCallback(() => {
+    const nextIsActive = !isActive;
     updateGlobals({
-      [KEY]: !isActive,
+      [TOOL_ID]: nextIsActive,
     });
+    channel.emit(EVENTS.RESULT, nextIsActive);
   }, [isActive]);
 
   return (
